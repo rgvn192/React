@@ -21,6 +21,14 @@
 }
 
 /* Navigation menu styling */
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+}
+
 .nav-items ul {
   list-style-type: none;
   display: flex;
@@ -40,16 +48,52 @@
   color: #f0a500;
 }
 
+.nav-items a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.nav-items a:hover {
+  color: #f0a500;
+}
+
+/* Button Styling */
+.nav-items button {
+  padding: 8px 16px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.nav-items button:hover {
+  background-color: #0056b3;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
-  .header {
+  .nav-items {
     flex-direction: column;
-    text-align: center;
+    align-items: center;
   }
 
   .nav-items ul {
     flex-direction: column;
     gap: 10px;
+    align-items: center;
+  }
+
+  .nav-items li {
+    font-size: 18px;
+  }
+
+  .nav-items button {
+    margin-top: 10px;
   }
 }
 
@@ -102,4 +146,163 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+}
+
+/* Updated Shimmer Card Matching Restaurant Card Dimensions */
+.res-card.shimmer-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  width: 300px; /* Updated width to match the exact restaurant card */
+  height: 400px; /* Updated height to match the exact restaurant card */
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.shimmer {
+  border-radius: 8px;
+  background: linear-gradient(to right, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -150% 0;
+  }
+  100% {
+    background-position: 150% 0;
+  }
+}
+
+.res-card.shimmer-card .shimmer:first-child {
+  height: 200px; /* Matches image section of the restaurant card */
+  margin-bottom: 12px;
+}
+
+.res-card.shimmer-card .shimmer:nth-child(2) {
+  height: 28px; /* Matches restaurant name section */
+  width: 80%;
+  margin: 8px 0;
+}
+
+.res-card.shimmer-card .shimmer:nth-child(3) {
+  height: 22px; /* Matches rating section */
+  width: 35%;
+  margin-bottom: 6px;
+}
+
+.res-card.shimmer-card .shimmer:nth-child(4) {
+  height: 20px; /* Matches price section */
+  width: 60%;
+}
+
+/* Adding consistent spacing and centering */
+.res-container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.filter-search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+/* Filter Button */
+.filter-button {
+  padding: 12px 20px;
+  background-color: #ff6347;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-button:hover {
+  background-color: #e55337;
+  box-shadow: 0 4px 8px rgba(255, 99, 71, 0.3);
+}
+
+.filter-button:active {
+  transform: scale(0.97);
+}
+
+/* Search Box */
+.search-box {
+  margin-right: 10px;
+  flex: 1;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.search-box:focus {
+  border-color: #ff6347;
+  box-shadow: 0 4px 8px rgba(255, 99, 71, 0.3);
+}
+
+:root {
+  --orange-color: #ff5722; /* Use your preferred orange color */
+}
+
+/* Search button styles */
+button.search-button {
+  border: 2px solid var(--orange-color); /* Orange outline */
+  background-color: white; /* White background */
+  color: var(--orange-color); /* Orange text */
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect: Switch colors */
+button.search-button:hover {
+  background-color: var(--orange-color); /* Orange background */
+  color: white; /* White text */
+}
+
+.error-page {
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  background-image: var(--background-url); /* Use the custom property */
+  background-size: cover; /* Cover the entire area without distortion */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent repeating of the image */
+  overflow: hidden; /* Prevent scrollbars */
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default padding */
+}
+
+.error-text {
+  position: absolute;
+  bottom: 10px; /* Adjust as needed */
+  right: 60px; /* Adjust as needed */
+  color: white;
+  text-align: left;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+.large-text {
+  font-size: 10vw;
 }
